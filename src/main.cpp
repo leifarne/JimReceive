@@ -322,7 +322,8 @@ void displayScreen(float temp, float vbat, float min, float max, int rssi) {
 void updateScreenTimer(unsigned long ms) {
   display.setTextSize(1);
 
-  int minutes = ms / 1000 / 10;
+  // Divide by 60 to update every 60 seconds, divide by 10 to update every 10 seconds.
+  int minutes = ms / 1000 / 120;
   display.setTextColor(WHITE);
 
   display.fillRect(5, 40, 50, 8, BLACK); // Clear the bar.
